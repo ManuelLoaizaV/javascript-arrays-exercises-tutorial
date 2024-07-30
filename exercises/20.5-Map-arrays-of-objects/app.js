@@ -6,9 +6,15 @@ let people = [
 	{ name: 'Steve', birthDate: new Date(2003,4,24) }
 ];
 
+// Retrieved from https://stackoverflow.com/questions/4060004/calculate-age-given-the-birth-date-in-the-format-yyyymmdd
+function calculateAge(birthday) { // birthday is a date
+    var ageDifMs = Date.now() - birthday.getTime();
+    var ageDate = new Date(ageDifMs); // miliseconds from epoch
+    return Math.abs(ageDate.getUTCFullYear() - 1970);
+}
+
 let simplifier = function(person) {
-	// Your code here
-	return person.name;
+	return `Hello, my name is ${person.name} and I am ${calculateAge(person.birthDate)} years old`;
 };
 
 console.log(people.map(simplifier));

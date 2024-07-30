@@ -1,6 +1,8 @@
 let people = ['juan','ana','michelle','daniella','stefany','lucy','barak', 'emilio'];
 
-// Your code below
+function deletePerson(banned) {
+    return people.filter(p => p !== banned);
+}
 
 console.log(deletePerson('daniella'));
 console.log(deletePerson('juan'));
